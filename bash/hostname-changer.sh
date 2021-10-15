@@ -20,15 +20,14 @@
 # If that hostname is not the current hostname, change it using the hostnamectl command and
 #     tell the user you changed the current hostname and they should reboot to make sure the new name takes full effect
 #e.g. hostnamectl set-hostname $newname
-hname=$(hostname)
-echo 'Cureent Hostname is:' $hname 
-echo''
-echo 'Please enter your studentnumber:                  '
-read studentnumber
-update=pc$studentnumber
-echo -e '\nYour new hostname has been changed to: ' $update 
-sudo sed -i "s/$hname/$update/" /etc/hosts &&  echo -e '\n''Hostname has been changed by chaning file /etc/hosts'' \n'
-if [[ $hostname!=$update ]]; then 
-hostnamectl set-hostname $update && echo -e 'Reboot required in order to make the changes happen''\n'
+hname=$(hostname) #to check the hostname  of the system and store it in a variable named hname
+echo -e 'Cureent Hostname is:' $hname '\n'  #this command will help in displaying the hostname of the system and -e is used in order to \n command rahter than using another echo command for next line
+echo 'Please enter your studentnumber: ' # command to display  in order to enter the student number
+read studentnumber # read is used to read the inpput given by user. 
+update=pc$studentnumber #another variable  in  order to store the new hostname of the system
+echo -e '\nYour new hostname has been changed to: ' $update  # printing the newhostname of the system.
+sudo sed -i "s/$hname/$update/" /etc/hosts &&  echo -e '\n''Hostname has been changed by chaning file /etc/hosts'' \n' # changing the old hostname with a new hostname using sed command and changing that in /etc/hosts
+if [[ $hostname!=$update ]]; then  # using a loop and comparing hostname with the variable  if the values are not equal 
+hostnamectl set-hostname $update && echo -e 'Reboot required in order to make the changes happen''\n'  # chaning hostnmae using  hostnamectl command and printing that system requires reboot
 fi
-echo 'Thanks for choosing automated system of updating hostname'
+echo 'Thanks for choosing automated system of updating hostname' # last message printing
