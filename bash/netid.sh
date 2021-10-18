@@ -60,6 +60,10 @@ external_address=$(curl -s icanhazip.com)
 external_name=$(getent hosts $external_address | awk '{print $2}')
 
 cat <<EOF
+<<<<<<< HEAD
+=======
+
+>>>>>>> 066f4916cbad0136d2985dc25cc56b10f836e6b3
 System Identification Summary
 =============================
 Hostname      : $my_hostname
@@ -67,6 +71,10 @@ Default Router: $default_router_address
 Router Name   : $default_router_name
 External IP   : $external_address
 External Name : $external_name
+<<<<<<< HEAD
+=======
+
+>>>>>>> 066f4916cbad0136d2985dc25cc56b10f836e6b3
 EOF
 
 #####
