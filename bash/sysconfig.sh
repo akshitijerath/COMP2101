@@ -2,7 +2,7 @@
 # this script displays system information
 
 # TASK: This script produces a report. It does not communicate errors or deal with the user pressing ^C
-#       Create the 4 functions described in the comments for
+##       Create the 4 functions described in the comments for
 #         help display
 #         error message display (2 of these)
 #         temporary files cleanup to be used with interrupts
